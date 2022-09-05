@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1662419876 source:g:\study with gub\c-final-project\gub-student-attendence\main.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<windows.h>
+	<conio.h>
+

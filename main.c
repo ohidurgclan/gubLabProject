@@ -1155,7 +1155,7 @@ int admin_log_in() {
   int i, s = 0;
   char name[20], password[20], p;
   char cUser[20] = {
-    "cooudinate01"
+    "coordinate01"
   };
   char cPASS[20] = {
     "green"
@@ -1166,7 +1166,7 @@ int admin_log_in() {
   SetColor(11);
   printf("\n\n\t\t\t\t\tYou must log in first\n");
   SetColor(6);
-  printf("\n\n\t\t\t\t\t Coordinator User Name: ");
+  printf("\n\n\t\t\t\t\tCoordinator User Name: ");
   SetColor(3);
   gets(name);
   SetColor(6);

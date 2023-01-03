@@ -88,13 +88,9 @@ int edit_2(int td);
 
 void SetColor(int ForgC) {
   WORD wColor;
-  //We will need this handle to get the current background attribute
   HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
   CONSOLE_SCREEN_BUFFER_INFO csbi;
-
-  //We use csbi for the wAttributes word.
   if (GetConsoleScreenBufferInfo(hStdOut, & csbi)) {
-    //Mask out all but the background attribute, and add in the forgournd color
     wColor = (csbi.wAttributes & 0xF0) + (ForgC & 0x0F);
     SetConsoleTextAttribute(hStdOut, wColor);
   }
@@ -114,7 +110,6 @@ int home() {
   printf("\n\n");
   printf("\t\t\t\t\t  1. Log In as Teacher\n");
   printf("\t\t\t\t\t  2. Log In as Course Coordinator\n");
-  //printf("\t\t\t\t\t  3. CGPA Calculator\n");
   printf("\t\t\t\t\t  4. EXIT \n\n\n\n\n");
   SetColor(14);
   printf("\t\t\t\t\t Select an Option:");
@@ -194,7 +189,6 @@ int teacher_home() {
     teacher_home();
   }
   return 0;
-
 }
 
 struct s_attendance {
@@ -859,7 +853,7 @@ int edit2(char id[50], char edit_smstr[20]) {
   gets(std2.section);
   printf("  Enter New Student BATCH:");
   gets(std2.batch);
-  printf("  Enter New Student Address[Village,Thana,District]:");
+  printf("  Enter New Student Address[Village,Home Town,District]:");
   gets(std2.address);
   printf("  Enter New Student Department:");
   gets(std2.department);
@@ -969,11 +963,11 @@ int search_student_attendance() {
   while (fread( & s_att, sizeof(s_att), 1, ssatt)) {
     if (strcmp(id, s_att.sid) == 0) {
       if (strcmp(p, s_att.ati) == 0) {
-        present = present + 1;
+        present += 1;
       } else {
-        absent = absent + 1;
+        absent += 1;
       }
-      count = count + 1;
+      count += 1;
       found = 1;
     }
   }
